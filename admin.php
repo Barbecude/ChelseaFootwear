@@ -182,9 +182,6 @@ if (isset($_GET['pesan'])){
         </div>
     </div>
 </div>
-
-
-
 </div>
 </body>
 </html>
