@@ -1,0 +1,42 @@
+body {
+  padding-top: 100px; /* Adjust this value according to the height of your header */
+}
+.text-banner{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.product-list {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.product {
+    display: inline-block;
+    margin-right: 1rem;
+}
+.product-list::-webkit-scrollbar {
+    width: 0;
+    }
+ .free-delivery, .nav-atas {
+background-color: 
+#f5f5f5;
+    }
+    .icon-nav {
+        list-style: none;
+        color: black;
+       
+      }
+      
+      .icon-nav:hover {
+        border-radius: 50%;
+        background-color: rgb(222, 222, 222); /* Warna latar belakang saat hover */
+        z-index: -2; /* Letakkan di belakang ikon */
+      }
+      .icon-profile:hover{
+        border-radius: 50%;
+        background-color: rgb(222, 222, 222); /* Warna latar belakang saat hover */
+        z-index: -2; /* Letakkan di belakang ikon */
+      }
+    .gambarPentofel{
+      border-radius: 5px;
+    }

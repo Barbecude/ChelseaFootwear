@@ -1,0 +1,87 @@
+<body>
+    <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="logoutModalLabel">Confirm Logout</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to log out?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn" data-bs-dismiss="modal">
+                Cancel</button>
+            <a href="autentikasi/logout/logout.php" class="btn btn-danger">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header class="fixed-top bg-white mb-5">   
+        <div class="nav-atas d-flex text-end py-1">  
+            <div class="container">
+                <div class="container">
+                    <div class="row">
+                      
+                      <div class="col">
+                        <?php 
+                session_start();
+                if (isset($_SESSION['level']) && ($_SESSION['level'] == "admin" || $_SESSION['level'] == "user")): 
+                ?>
+                    <li class="dropdown list-inline">  
+              <a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
+                <i class="bi bi-person-circle px-1 icon-profile" style="font-size: 24px;"></i>
+              </a>  
+              <ul class="dropdown-menu dropdown-menu-end ">           
+                <li>
+                    <a class="dropdown-item text-black fw-medium d-flex align-items-center" href="action-logout.php" data-bs-toggle="modal" data-bs-target="#logoutModal">
+                        <i class="bi bi-person-circle me-2" style="font-size: 24px;"></i>
+                        <?php
+                        include 'koneksi.php';
+                        echo $_SESSION['nama'];
+                        ?>
+                    </a>
+                </li>
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                    <a class="dropdown-item text-danger fw-medium d-flex align-items-center " href="action-logout.php" data-bs-toggle="modal" data-bs-target="#logoutModal">
+                        
+                        Log out
+                    </a>
+                </li>
+              </ul>
+              
+            </li>
+                    
+                <?php else: ?>
+                    <a href="autentikasi/daftar/auth-daftar.php" class="text-decoration-none text-black">
+                        <span class="navbar-text fw-medium">Create Account</span>
+                    </a>
+                    <span class="navbar-text mx-3 fw-medium">|</span>
+                    <a href="autentikasi/login/auth-login.php" class="text-decoration-none text-black">
+                        <span class="navbar-text fw-medium">Log In</span>
+                    </a>
+                <?php endif; ?>
+            </div>
+        </div>
+                      </div>
+                    </div>
+                  </div>
+        <nav class="navbar">
+            <div class="container d-flex justify-content-between">
+                <img src="assets/brand/logo.svg" width="50px" alt="Logo" class="me-3">
+                <div class="d-flex align-items-center">
+                  <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                </form>
+                
+                        <a class="btn" href="favorit.php">
+                        <i class="bi bi-heart" style="font-size: 24px;"></i>
+                        </a>  
+                        <a class="btn" href="cart.php">
+                        <i class="bi bi-cart" style="font-size: 24px;"></i>
+                        </a>
+                </div>
+            </div>
+        </nav>
+    </header>

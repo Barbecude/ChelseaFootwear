@@ -52,7 +52,6 @@ if (isset($_GET['pesan'])){
             </tr>
 </table>
 </form>
-
 <h1>REMOVE USER</h1>
 <div class="accordion" id="removeUserAccordion">
     <div class="accordion-item">

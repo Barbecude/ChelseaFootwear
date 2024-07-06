@@ -1,0 +1,17 @@
+//warna tema
+$primary: rgb(0, 0, 0);
+$secondary: gray;
+//input form
+$input-focus: black;
+$input-focus-border-color: black;      
+//container
+$container-max-widths: (
+  sm: 1px,
+  md: 1px,
+  lg: 1px,
+  xl: 1px,
+  xxl: 1px
+);             
+
+           
+@import '../bootstrap/scss/bootstrap';
