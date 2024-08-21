@@ -80,9 +80,9 @@ class Produk extends CI_Controller {
         }
 
         $update = [
-            'nama_produk'           => $this->input->post('nama_produk'),
-            'gambar_satu'         => $gambar_satu,
-            'harga'     => $this->input->post('harga'),
+            'nama_produk'   => $this->input->post('nama_produk'),
+            'gambar_satu'   => $gambar_satu,
+            'harga'         => $this->input->post('harga'),
         ];
 
         $this->db->where('id', $this->input->post('id'));

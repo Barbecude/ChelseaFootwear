@@ -140,7 +140,6 @@
                                 Cart
                                 </a>
                             </div>
- 
                         </button>
                     </div>
                 </div>
@@ -189,20 +188,31 @@
             </p>
             <ul class="product-container-list mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <?php
+
                     $query_mysql = mysqli_query(mysqli_connect("localhost","root",'',"website_pandawa"), "SELECT * FROM produk");
                     while($produk = mysqli_fetch_array($query_mysql)){ ?>
-                  <tr>
                 <li>
+                    <?php 
+                    echo form_open('belanja/add');
+                    echo form_hidden('id', $produk['id']);
+                    echo form_hidden('qty', 1);            
+                    echo form_hidden('price',  $produk['harga']);
+                    echo form_hidden('name', $produk['nama_produk']);
+                    echo form_hidden('redirect_page', str_replace('index.php/','', current_url()));
+                    ?>
+                    
                     <a href="#" class="group block overflow-hidden">
                     <img src="<?php echo base_url()?>assets/img/produk/<?php echo $produk['gambar_satu'] ?>" alt="First slide">
                     <div class="flex justify-between mt-3">
                         <div class="">
                         <h3 class="text-xs text-gray-700"><?php echo $produk['nama_produk'] ?></h3>
-                        <span class="tracking-wider text-gray-900 font-medium">Rp <?php echo $produk['harga'] ?></span>
+                        <span class="tracking-wider text-gray-900 font-medium">Rp <?php echo number_format($produk['harga'], 0, ',', '.'); ?>
+                        </span>
                         </div>
-                        <button class="hover:bg-gray-200 p-2 rounded-lg"><span class="material-symbols-outlined">shopping_cart</span></button>
+                        <button href="belanja/add" class="hover:bg-gray-200 p-2 rounded-lg"><span class="material-symbols-outlined">shopping_cart</span></button>
                     </div>
-                    </a>           
+                    </a>   
+                    <?php echo form_close()?>        
                 </li>
                 <?php } ?>
             </ul>

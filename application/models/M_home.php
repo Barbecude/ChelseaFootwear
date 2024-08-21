@@ -73,7 +73,6 @@ class M_home extends CI_Model{
 	{
 		return $this->db->query('SELECT a.*, b.nama as nama_supplier FROM barang a, supplier b WHERE a.id_supplier=b.id')->result_array();
 	}
-
 	public function insert_pegawai()
 	{
 		$simpan = [

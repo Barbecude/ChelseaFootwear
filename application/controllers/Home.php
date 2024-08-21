@@ -10,6 +10,7 @@ class Home extends CI_Controller {
         if(!$this->session->userdata('pid')) // Jika tidak ada
             redirect('login'); // Redirect ke halaman login
         $this->load->model('m_home');
+
     }
 
     public function index() {
@@ -19,6 +20,7 @@ class Home extends CI_Controller {
             'link_edit' => 'Home/home_edit',
             'link_tambah' => 'Home/home_add',
             'home' => $home
+            'produk' => $this->m_home->get_all_data;
         ];
         $this->template->display('home/index', $data);
     }
