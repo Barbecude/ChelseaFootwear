@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
+    
 
     <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -330,8 +330,7 @@
                 </div>
 
                 <p class="max-w-md text-start leading-relaxed text-gray-500 mt-2">
-                    Feel Comfort and Style in Every Step with Our Loafers
-                    designed to Provide Support and Grace at Every Occasion.
+                    Feel 
                 </p>
             </div>
             <div class="sm:text-left mt-2">
