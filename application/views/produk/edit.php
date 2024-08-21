@@ -19,14 +19,6 @@
                                 <div class="col-md-10">
                                     <input type="heading" name="id" id="id" class="form-control" value="<?php echo $produk['id']; ?>" required autocomplete="off">
                                 </div>
-                                <div class="col-md-2"><label class="control-label" for="judul">Judul</label></div>
-                                <div class="col-md-10">
-                                    <input type="text" name="judul" id="judul" class="form-control" value="<?php echo $produk['judul']; ?>" required autocomplete="off">
-                                </div>
-                                <div class="col-md-2"><label class="control-label" for="sub_judul">Sub Judul</label></div>
-                                <div class="col-md-10">
-                                    <input type="text" name="sub_judul" id="sub_judul" class="form-control" value="<?php echo $produk['sub_judul']; ?>" required autocomplete="off">
-                                </div>
                                 <div class="col-md-2"><label class="control-label" for="nama_produk">Nama Produk</label></div>
                                 <div class="col-md-10">
                                     <input type="text" name="nama_produk" id="nama_produk" class="form-control" value="<?php echo $produk['nama_produk']; ?>" required autocomplete="off">
@@ -35,29 +27,9 @@
                                 <div class="col-md-10">
                                     <input type="file" name="gambar_satu" id="gambar_satu" class="form-control" value="<?php echo $produk['gambar_satu']; ?>" autocomplete="off">
                                 </div>
-                                <div class="col-md-2"><label class="control-label" for="gambar_dua">Gambar Dua</label></div>
-                                <div class="col-md-10">
-                                    <input type="file" name="gambar_dua" id="gambar_dua" class="form-control" value="<?php echo $produk['gambar_dua']; ?>" autocomplete="off">
-                                </div>
-                                <div class="col-md-2"><label class="control-label" for="gambar_tiga">Gambar Tiga</label></div>
-                                <div class="col-md-10">
-                                    <input type="file" name="gambar_tiga" id="gambar_tiga" class="form-control" value="<?php echo $produk['gambar_tiga']; ?>" autocomplete="off">
-                                </div>
                                 <div class="col-md-2"><label class="control-label" for="harga">Harga</label></div>
                                 <div class="col-md-10">
                                     <input type="text" name="harga" id="harga" class="form-control" value="<?php echo $produk['harga']; ?>" required autocomplete="off">
-                                </div>
-                                <div class="col-md-2"><label class="control-label" for="type">Type</label></div>
-                                <div class="col-md-10">
-                                    <input type="text" name="type" id="type" class="form-control" value="<?php echo $produk['type']; ?>" required autocomplete="off">
-                                </div>
-                                <div class="col-md-2"><label class="control-label" for="sub_gambar_tiga">Sub Gambar Tiga</label></div>
-                                <div class="col-md-10">
-                                    <input type="text" name="sub_gambar_tiga" id="sub_gambar_tiga" class="form-control" value="<?php echo $produk['sub_gambar_tiga']; ?>" required autocomplete="off">
-                                </div>
-                                <div class="col-md-2"><label class="control-label" for="Warna">Warna</label></div>
-                                <div class="col-md-10">
-                                    <input type="text" name="warna" id="warna" class="form-control" value="<?php echo $produk['warna']; ?>" required autocomplete="off">
                                 </div>
                             </div>
                             

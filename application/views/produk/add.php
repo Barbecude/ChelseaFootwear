@@ -19,15 +19,7 @@
                                 <div class="col-md-10">
                                     <input type="heading" name="id" id="id" class="form-control" required autocomplete="off">
                                 </div>
-                                <div class="col-md-2"><label class="control-label" for="judul">Judul</label></div>
-                                <div class="col-md-10">
-                                    <input type="text" name="judul" id="Judul" class="form-control" required autocomplete="off">
-                                </div>
-                                <div class="col-md-2"><label class="control-label" for="sub_judul">Sub Judul</label></div>
-                                <div class="col-md-10">
-                                    <input type="text" name="sub_judul" id="sub_judul" class="form-control" required autocomplete="off">
-                                </div>
-                                <div class="col-md-2"><label class="control-label" for="nama_produk">Nama produk</label></div>
+                                <div class="col-md-2"><label class="control-label" for="nama_produk">Nama produkk</label></div>
                                 <div class="col-md-10">
                                     <input type="text" name="nama_produk" id="nama_produk" class="form-control" required autocomplete="off">
                                 </div>
@@ -35,29 +27,9 @@
                                 <div class="col-md-10">
                                     <input type="file" name="gambar_satu" id="gambar_satu" class="form-control" required autocomplete="off">
                                 </div>
-                                <div class="col-md-2"><label class="control-label" for="gambar_dua">Gambar Dua</label></div>
-                                <div class="col-md-10">
-                                    <input type="file" name="gambar_dua" id="gambar_dua" class="form-control" required autocomplete="off">
-                                </div>
-                                <div class="col-md-2"><label class="control-label" for="gambar_tiga">Gambar Tiga</label></div>
-                                <div class="col-md-10">
-                                    <input type="file" name="gambar_tiga" id="gambar_tiga" class="form-control" required autocomplete="off">
-                                </div>
                                 <div class="col-md-2"><label class="control-label" for="harga">Harga</label></div>
                                 <div class="col-md-10">
                                     <input type="text" name="harga" id="harga" class="form-control" required autocomplete="off">
-                                </div>
-                                <div class="col-md-2"><label class="control-label" for="type">Type</label></div>
-                                <div class="col-md-10">
-                                    <input type="text" name="type" id="type" class="form-control" required autocomplete="off">
-                                </div>
-                                <div class="col-md-2"><label class="control-label" for="sub_gambar_tiga">Sub Gambar Tiga</label></div>
-                                <div class="col-md-10">
-                                    <input type="text" name="sub_gambar_tiga" id="sub_gambar_tiga" class="form-control" required autocomplete="off">
-                                </div>
-                                <div class="col-md-2"><label class="control-label" for="warna">Warna</label></div>
-                                <div class="col-md-10">
-                                    <input type="text" name="warna" id="warna" class="form-control" required autocomplete="off">
                                 </div>
                             </div>
                             
@@ -105,4 +77,4 @@ $(document).ready(function(){
         
     });
     });
-</script>    
+</script>

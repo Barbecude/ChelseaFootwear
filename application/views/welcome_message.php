@@ -183,108 +183,28 @@
     <!--  Start Produk-->
     <section class="service" id="produk">
         <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
-            <h2 class="text-xl font-bold text-gray-900 sm:text-3xl"><?php echo $produk['judul']?></h2>
+            <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">Produk</h2>
             <p class="mt-4 max-w-md text-gray-500">
-                <?php echo $produk['sub_judul']?>
+                Produk
             </p>
-            <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <li>
-                            <a href="#" class="group block overflow-hidden">
-                                <img src="<?php echo base_url()?>assets/img/produk/<?php echo $produk['gambar_satu'] ?>"
-                                alt="First slide">
-                                <div class="flex justify-between items-center">
-                                    <div class="pt-3">
-                                        <h3 class="text-xs text-gray-700">
-                                            <?php echo $produk['type'] ?>
-                                        </h3>
-                                        <p class="mt-2">
-                                            <span class="tracking-wider text-gray-900 font-medium"> <?php echo $produk['harga'] ?></span>
-                                        </p>
-                                        
-                                    </div>
-                                <div class="pt-3">
-                                </a>
-                                <span class="material-symbols-outlined hover:bg-gray-200 p-2 rounded-lg favorite transition" onclick="addToFavorite()">favorite</span>
-                        <span class="material-symbols-outlined hover:bg-gray-200 p-2 rounded-lg">shopping_cart</span>
-
-                                        </div>
-                                    
-                                </div>
-                            
-                    </li>
-                    <li>
-                            <a href="#" class="group block overflow-hidden">
-                                <img src="<?php echo base_url()?>assets/img/produk/<?php echo $produk['gambar_satu'] ?>"
-                                alt="First slide">
-                                <div class="flex justify-between items-center">
-                                    <div class="pt-3">
-                                        <h3 class="text-xs text-gray-700">
-                                            <?php echo $produk['type'] ?>
-                                        </h3>
-                                        <p class="mt-2">
-                                            <span class="tracking-wider text-gray-900 font-medium"> <?php echo $produk['harga'] ?></span>
-                                        </p>
-                                        
-                                    </div>
-                                <div class="pt-3">
-                                </a>
-                                <span class="material-symbols-outlined hover:bg-gray-200 p-2 rounded-lg favorite transition " onclick="addToFavorite()">favorite</span>
-
-                        <span class="material-symbols-outlined hover:bg-gray-200 p-2 rounded-lg">shopping_cart</span>
-
-                                        </div>
-                                    
-                                </div>
-                            
-                    </li>
-                    <li>
-                            <a href="#" class="group block overflow-hidden">
-                                <img src="<?php echo base_url()?>assets/img/produk/<?php echo $produk['gambar_satu'] ?>"
-                                alt="First slide">
-                                <div class="flex justify-between items-center">
-                                    <div class="pt-3">
-                                        <h3 class="text-xs text-gray-700">
-                                            <?php echo $produk['type'] ?>
-                                        </h3>
-                                        <p class="mt-2">
-                                            <span class="tracking-wider text-gray-900 font-medium"> <?php echo $produk['harga'] ?></span>
-                                        </p>
-                                        
-                                    </div>
-                                <div class="pt-3">
-                                </a>
-                                <span class="material-symbols-outlined hover:bg-gray-200 p-2 rounded-lg favorite transition" onclick="addToFavorite()">favorite</span>
-                        <span class="material-symbols-outlined hover:bg-gray-200 p-2 rounded-lg">shopping_cart</span>
-
-                                        </div>
-                                    
-                                </div>
-                            
-                    </li>
-                    <li>
-                            <a href="#" class="group block overflow-hidden">
-                                <img src="<?php echo base_url()?>assets/img/produk/<?php echo $produk['gambar_satu'] ?>"
-                                alt="First slide">
-                                <div class="flex justify-between items-center">
-                                    <div class="pt-3">
-                                        <h3 class="text-xs text-gray-700">
-                                            <?php echo $produk['type'] ?>
-                                        </h3>
-                                        <p class="mt-2">
-                                            <span class="tracking-wider text-gray-900 font-medium"> <?php echo $produk['harga'] ?></span>
-                                        </p>
-                                        
-                                    </div>
-                                <div class="pt-3">
-                                </a>
-                                <span class="material-symbols-outlined hover:bg-gray-200 p-2 rounded-lg favorite transition" onclick="addToFavorite()">favorite</span>
-                        <span class="material-symbols-outlined hover:bg-gray-200 p-2 rounded-lg">shopping_cart</span>
-
-                                        </div>
-                                    
-                                </div>
-                            
-                    </li>
+            <ul class="product-container-list mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <?php
+                    $query_mysql = mysqli_query(mysqli_connect("localhost","root",'',"website_pandawa"), "SELECT * FROM produk");
+                    while($produk = mysqli_fetch_array($query_mysql)){ ?>
+                  <tr>
+                <li>
+                    <a href="#" class="group block overflow-hidden">
+                    <img src="<?php echo base_url()?>assets/img/produk/<?php echo $produk['gambar_satu'] ?>" alt="First slide">
+                    <div class="flex justify-between mt-3">
+                        <div class="">
+                        <h3 class="text-xs text-gray-700"><?php echo $produk['nama_produk'] ?></h3>
+                        <span class="tracking-wider text-gray-900 font-medium">Rp <?php echo $produk['harga'] ?></span>
+                        </div>
+                        <button class="hover:bg-gray-200 p-2 rounded-lg"><span class="material-symbols-outlined">shopping_cart</span></button>
+                    </div>
+                    </a>           
+                </li>
+                <?php } ?>
             </ul>
 
         </div>

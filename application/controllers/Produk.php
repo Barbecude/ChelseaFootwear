@@ -41,31 +41,11 @@ class Produk extends CI_Controller {
         }else{
             $gambar_satu='';
         }
-        if($this->upload->do_upload("gambar_dua")){
-            $data1 = array('upload_data' => $this->upload->data());
-            $gambar_dua = $data1['upload_data']['file_name'];
-        }else{
-            $gambar_dua='';
-        }
-        if($this->upload->do_upload("gambar_tiga")){
-            $data1 = array('upload_data' => $this->upload->data());
-            $gambar_tiga = $data1['upload_data']['file_name'];
-        }else{
-            $gambar_tiga='';
-        }
 
         $datasimpan = [
-            'id'                  => $this->input->post('id'),
-            'judul'               => $this->input->post('judul'),
-            'sub_judul'           => $this->input->post('sub_judul'),
             'nama_produk'           => $this->input->post('nama_produk'),
             'gambar_satu'         => $gambar_satu,
-            'gambar_dua'          => $gambar_dua,
-            'gambar_tiga'         => $gambar_tiga,
             'harga'     => $this->input->post('harga'),
-            'type'      => $this->input->post('type'),
-            'sub_gambar_tiga'     => $this->input->post('sub_gambar_tiga'),
-            'warna'     => $this->input->post('warna')
         ];
 
 
@@ -96,33 +76,13 @@ class Produk extends CI_Controller {
             $data1 = array('upload_data' => $this->upload->data());
             $gambar_satu = $data1['upload_data']['file_name'];
         }else{
-            $gambar_satu='';
-        }
-        if($this->upload->do_upload("gambar_dua")){
-            $data2 = array('upload_data' => $this->upload->data());
-            $gambar_dua = $data2['upload_data']['file_name'];
-        }else{
-            $gambar_dua='';
-        }
-        if($this->upload->do_upload("gambar_tiga")){
-            $data3 = array('upload_data' => $this->upload->data());
-            $gambar_tiga = $data3['upload_data']['file_name'];
-        }else{
-            $gambar_tiga='';
+            $gambar_satu='Tidak ada gambar';
         }
 
         $update = [
-            'id'                  => $this->input->post('id'),
-            'judul'               => $this->input->post('judul'),
-            'sub_judul'           => $this->input->post('sub_judul'),
             'nama_produk'           => $this->input->post('nama_produk'),
             'gambar_satu'         => $gambar_satu,
-            'gambar_dua'          => $gambar_dua,
-            'gambar_tiga'         => $gambar_tiga,
             'harga'     => $this->input->post('harga'),
-            'type'      => $this->input->post('type'),
-            'sub_gambar_tiga'     => $this->input->post('sub_gambar_tiga'),
-            'warna'     => $this->input->post('warna')
         ];
 
         $this->db->where('id', $this->input->post('id'));

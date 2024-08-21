@@ -16,17 +16,11 @@ class M_produk extends CI_Model{
 	public function insert_produk()
 	{
 		$simpan = [
-			
-			'judul'		        => $this->input->post('judul'),
-			'sub_judul'		    => $this->input->post('sub_judul'),
+		
+		
 			'nama_produk'           => $this->input->post('nama_produk'),
 			'gambar_satu'       => $gambar_satu,
-			'gambar_dua'	    => $gambar_dua,
-			'gambar_tiga'	    => $gambar_tiga,
 			'harga'     => $this->input->post('harga'),
-			'type'	=> $this->input->post('type'),
-			'sub_gambar_tiga'	=> $this->input->post('sub_gambar_tiga'),
-			'warna'     => $this->input->post('warna')
 		];
 
 		$ok = $this->db->insert('produk', $simpan);
@@ -35,17 +29,9 @@ class M_produk extends CI_Model{
 	public function update_produk()
 	{
 		$update = [
-			
-			'judul'		        => $this->input->post('judul'),
-			'sub_judul'		    => $this->input->post('sub_judul'),
 			'nama_produk'           => $this->input->post('nama_produk'),
 			'gambar_satu'       => $gambar_satu,
-			'gambar_dua'	    => $gambar_dua,
-			'gambar_tiga'	    => $gambar_tiga,
 			'harga'     => $this->input->post('harga'),
-			'type'	=> $this->input->post('type'),
-			'sub_gambar_tiga'	=> $this->input->post('sub_gambar_tiga'),
-			'warna'     => $this->input->post('warna')
 		];
         
 		$this->db->where('id', $this->input->post('id'));
