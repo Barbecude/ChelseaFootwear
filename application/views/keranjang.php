@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,54 +7,71 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-<?php
-$keranjang  = ($this->cart->contents());
-$jml_item = 0;
-foreach ($keranjang as $key => $value){
-     $jml_item += $value['qty'];
-}
-
-$query_mysql = mysqli_query(mysqli_connect("localhost","root",'',"website_pandawa"), "SELECT * FROM produk");
-?>
 
 <div class="container mx-auto p-6">
-    <h2 class="text-2xl font-bold mb-6">Keranjang</h2>
+<?php
+// Check if the cart is empty
+if ($this->cart->total_items() == 0) {
+    // Redirect to home page if cart is empty
+    redirect(base_url());
+} else {
+    echo form_open('belanja/update'); 
+?>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <?php while($produk = mysqli_fetch_array($query_mysql)){ 
-            // Check if the current product is in the cart
-            $product_in_cart = null;
-            foreach ($keranjang as $item) {
-                if ($item['id'] == $produk['id']) { // Assuming 'id' is the product identifier
-                    $product_in_cart = $item;
-                    break;
-                }
-            }
-        ?>
+<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 
-        <div class="border rounded-lg shadow-lg overflow-hidden">
-            <img src="<?php echo base_url()?>assets/img/produk/<?php echo $produk['gambar_satu'] ?>" alt="<?= $produk['nama_produk']?>" class="w-full h-48 object-cover">
-            <div class="p-4">
-                <h3 class="text-lg font-semibold mb-2"><?= $produk['nama_produk']?></h3>
-                <p class="text-gray-600 mb-4">Rp <?= number_format($produk['harga'], 0) ?></p>
+<?php $i = 1; ?>
 
-                <?php if ($product_in_cart): ?>
-                <p class="text-sm text-gray-500"><?= $product_in_cart['qty'] ?> x Rp <?= number_format($product_in_cart['price'], 0) ?></p>
-                <p class="text-sm text-gray-900 font-bold">Subtotal: Rp <?= $this->cart->format_number($product_in_cart['subtotal']); ?></p>
-                <?php else: ?>
-                <p class="text-sm text-gray-500">Item not in cart</p>
-                <?php endif; ?>
-            </div>
+<?php foreach ($this->cart->contents() as $items): ?>
+    <?php echo form_hidden($i.'[rowid]', $items['rowid']); ?>
+    <?php 
+    // Retrieve image from the database
+    $product_id = $items['id'];
+    $query = $this->db->get_where('produk', array('id' => $product_id));
+    $product = $query->row();
+    $image_url = base_url('assets/img/produk/' . $product->gambar_satu); 
+    ?>
+
+    <div class="bg-white shadow-md rounded-lg p-4 flex flex-col justify-between">
+        <div>
+            <img src="<?php echo $image_url; ?>" alt="<?php echo $items['name']; ?>" class="w-full object-cover rounded-md mb-4">
+            <h2 class="text-lg font-semibold mb-2"><?php echo $items['name']; ?></h2>
+            <p class="text-right text-gray-700 mb-2">Price: Rp <?php echo number_format($items['price'], 0); ?></p>
+            <p class="text-right text-gray-700 mb-4">Subtotal: Rp <?php echo number_format($items['subtotal'], 0); ?></p>
         </div>
-
-        <?php } ?>
+        <p class="mb-2">Quantity</p>
+        <div class="flex justify-between items-center">
+                <?php echo form_input(array(
+                    'id'        => 'qty-'.$i,
+                    'type'      => 'number' ,
+                    'name'      => $i.'[qty]', 
+                    'value'     => $items['qty'],
+                    'min'       => '0',
+                    'maxlength' => '3', 
+                    'size'      => '5',
+                    'class'     => 'border rounded-md p-1 w-16'
+                    )); 
+                ?>
+            <a class="font-medium bg-red-700 text-white p-2 rounded-lg transition hover:bg-red-800" href="<?= base_url('belanja/delete/'.$items['rowid'])?>">Delete from cart</a>
+        </div>
     </div>
 
-    <div class="mt-6">
-        <h3 class="text-xl font-bold">Total: Rp <?= $this->cart->format_number($this->cart->total()); ?></h3>
-    </div>
+<?php $i++; ?>
+<?php endforeach; ?>
+
 </div>
+
+<div class="mt-6 text-right">
+    <p class="text-lg font-bold">Total: Rp <?php echo number_format($this->cart->total(), 0); ?></p>
+    <button class="mt-2 font-medium bg-yellow-500 text-white px-4 py-2 rounded-md hover:bg-yellow-600">Update your Cart</button>
+    <button class="mt-2 font-medium bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600">Check Out</button>
+    <button class="mt-2 font-medium bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600" href="<?= base_url('belanja/clear')?>">Clear Cart</button>
+</div>
+<?php 
+    echo form_close(); 
+} // End of else block
+?>
+</div>
+
 </body>
 </html>
-
-

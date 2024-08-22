@@ -114,10 +114,17 @@
                         </a>
                        
                         <div class="hidden sm:flex">
-                            <a class="" href="#">
-                                <img src="<?php echo base_url()?>assets/assets_web/img/icon/cart.svg"
-                                    class="rounded-md hover:bg-gray-100 p-2.5">
-                            </a>
+                            <?php  
+                            $keranjang = $this->cart->contents();
+                            $jml_item = 0;
+                            foreach ($keranjang as $key => $value){
+                                $jml_item = $jml_item + $value['qty'];
+                            }
+                            ?>
+                        <a class="rounded-md hover:bg-gray-100 p-2.5" href="<?php echo site_url('keranjang'); ?>">
+                                <span class="absolute top-12 ms-4 bg-black text-xs text-white px-1 rounded"><?= $jml_item ?></span>
+                                <img src="<?php echo base_url()?>assets/assets_web/img/icon/cart.svg">
+                         </a>
                         </div>
                     </div>
 
@@ -133,7 +140,7 @@
                                         </span>
                                 Favorite
                                 </a>
-                                <a href="#" class="block py-2 text-gray-700 hover:bg-gray-100 flex items-center px-3">
+                                <a href="keranjang" class="block py-2 text-gray-700 hover:bg-gray-100 flex items-center px-3">
                                         <span class="material-symbols-outlined me-2" id="profile-button">
                                         shopping_cart
                                         </span>
@@ -184,7 +191,7 @@
         <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
             <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">Produk</h2>
             <p class="mt-4 max-w-md text-gray-500">
-                Produk
+                Produk ChelseaFootwear
             </p>
             <ul class="product-container-list mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <?php
@@ -205,7 +212,7 @@
                     <img src="<?php echo base_url()?>assets/img/produk/<?php echo $produk['gambar_satu'] ?>" alt="First slide">
                     <div class="flex justify-between mt-3">
                         <div class="">
-                        <h3 class="text-xs text-gray-700"><?php echo $produk['nama_produk'] ?></h3>
+                        <h3 class="text-gray-700"><?php echo $produk['nama_produk'] ?></h3>
                         <span class="tracking-wider text-gray-900 font-medium">Rp <?php echo number_format($produk['harga'], 0, ',', '.'); ?>
                         </span>
                         </div>
