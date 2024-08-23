@@ -199,7 +199,7 @@
                     $query_mysql = mysqli_query(mysqli_connect("localhost","root",'',"website_pandawa"), "SELECT * FROM produk");
                     while($produk = mysqli_fetch_array($query_mysql)){ ?>
                 <li>
-                    <?php 
+                    <?php
                     echo form_open('belanja/add');
                     echo form_hidden('id', $produk['id']);
                     echo form_hidden('qty', 1);            

@@ -10,7 +10,7 @@
 
 <div class="container mx-auto p-6">
 <?php
-// Check if the cart is empty
+
 if ($this->cart->total_items() == 0) {
     // Redirect to home page if cart is empty
     redirect(base_url());
