@@ -102,12 +102,17 @@
     </header>
     <main class="mx-auto max-w-screen-xl px-4 min-h-lvh">
         <h1 class="text-5xl font-semibold mb-8">Profile</h1>
+        <?php
+                    $koneksi = mysqli_connect("localhost","root",'',"website_pandawa");
+                    $query_mysql = mysqli_query($koneksi, "SELECT * FROM user");
+                    $data = mysqli_fetch_array($query_mysql);
+                        ?>
 
         <form action="/update-profile" method="POST">
             <div class="mb-6">
                 <label for="email" class="block text-black-700 font-medium mb-2">Email</label>
                 <input type="email" id="email" name="email"
-                    class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900"
+                    class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900" value="<?php echo $data('nama') ?>"
                     required>
             </div>
 
@@ -116,7 +121,7 @@
                 <label for="nama" class="block text-black-700 font-medium mb-2">Nama</label>
                 <input type="text" id="nama" name="nama"
                     class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900"
-                    required value="<?php echo isset($user['nama']) ? $user['nama'] : ''; ?>">
+                    required value="<?php echo $this->session->userdata('nama') ?>">
             </div>
             <div class="mb-6">
                 <label for="username" class="block text-black-700 font-medium mb-2">Username</label>

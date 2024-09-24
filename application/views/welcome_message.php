@@ -66,10 +66,15 @@
                     <span class="material-symbols-outlined cursor-pointer hover:bg-gray-200 p-2" id="profile-button">
                         account_circle
                     </span>
+                    <?php
+                    $koneksi = mysqli_connect("localhost","root",'',"website_pandawa");
+                    $query_mysql = mysqli_query($koneksi, "SELECT * FROM user");
+                    $data = mysqli_fetch_array($query_mysql);
+                        ?>
                     <div id="profile-dropdown"
                         class="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded-md shadow-lg hidden z-50 transition">
                         <a class="block px-4 py-2 font-medium text-sm hover:bg-gray-100 flex items-center"
-                            href="<?php echo site_url('profile'); ?>">
+                            href="profile?u_id=<?= $data['u_id']; ?>">
                             <span class="material-symbols-outlined me-2" id="profile-button">
                                 account_circle
                             </span>
@@ -216,6 +221,7 @@
                         <span class="tracking-wider text-gray-900 font-medium">Rp <?php echo number_format($produk['harga'], 0, ',', '.'); ?>
                         </span>
                         </div>
+                        <button href="favorite/add" class="hover:bg-gray-200 p-2 rounded-lg"><span class="material-symbols-outlined">favorite</span></button>
                         <button href="belanja/add" class="hover:bg-gray-200 p-2 rounded-lg"><span class="material-symbols-outlined">shopping_cart</span></button>
                     </div>
                     </a>   
